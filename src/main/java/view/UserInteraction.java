@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class UserInteraction {
+public class UserInteraction implements DentistOfficeUserInteraction {
 
     private final String defaultQuestion = "\nWhat would you like to do?";
     private final String editQuestion = "\nWhat would you like to change?";
