@@ -412,7 +412,10 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public ProviderType getProviderTypeWithEmptyEntry() throws IOException{
-        String[] newOne = fillProviderType();
+        String[] newOne = new String[4];
+        newOne[0] = "Dentist";
+        newOne[1] = "Assistant";
+        newOne[2] = "Hygienist";
         newOne[3] = "All of them";
         int selection = ConsoleUI.promptForMenuSelection(newOne, "Select a criteria to search for?");
         switch (selection) {
@@ -430,7 +433,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     private String[] fillProviderType(){
-        String[] menuOptions = new String[4];
+        String[] menuOptions = new String[3];
         menuOptions[0] = "Dentist";
         menuOptions[1] = "Assistant";
         menuOptions[2] = "Hygienist";
