@@ -465,6 +465,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         String email;
         while (true) {
             email = ConsoleUI.promptForInput("Enter email", false, false);
+
+            //TODO emailregex.com
             for (int i = email.length() - 1; i > 0; i--) {
                 if (email.charAt(i) == '@') {
                     for (int j = email.length() - 1; j > i; j--) {
@@ -487,7 +489,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
             } else if (phone.length() < 10) {
                 println("The phone number is too short, please try again. (minimum 10 digits)");
                 //TODO MAKE SURE YOU CAN'T PUT ANY LETTERS
-            } else if (phone.matches("[a-zA-Z]")) {
+            } else
+                if (!phone.matches("^\\d{10}$")) {
                 println("Only numbers allowed");
             } else {
                 return phone;
