@@ -5,6 +5,7 @@ import interfaces.ConsoleUI;
 import model.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -33,12 +34,25 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     private String[] fillViewMenu() {
-        String[] menuOptions = new String[4];
+        String[] menuOptions = new String[5];
         menuOptions[0] = "Production";
         menuOptions[1] = "Patient Balance";
         menuOptions[2] = "Collections";
-        menuOptions[3] = "Exit";
+        menuOptions[3] = "Appointments";
+        menuOptions[4] = "Exit";
         return menuOptions;
+    }
+
+    public int appointmentsMenu() throws IOException{
+        return ConsoleUI.promptForMenuSelection(fillAppointmentsMenu(), "Past appointments is view only. Future appointments can be set to completed");
+    }
+
+    private String[] fillAppointmentsMenu() {
+        String[] options = new String[3];
+        options[0] = "Past Appointments";
+        options[1] = "Future Appointments";
+        options[2] = "Exit";
+        return  options;
     }
 
     public int createAdminMenu() throws IOException {
@@ -300,9 +314,10 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         }
         String[] options = new String[list.length];
         for (int i = 0; i < options.length; i++) {
-            options[i] = "Patient: " + procedures.get(i).getPatient().getName()
-                    + " " + procedures.get(i).getPatient().getLastName()
-                    + " | Code: " + procedures.get(i).getCode();
+            options[i] = "Provider: " + procedures.get(i).getProvider().getName()
+                    + " " + procedures.get(i).getProvider().getLastName()
+                    + " | Code: " + procedures.get(i).getCode()
+                    + " | Cost: " + procedures.get(i).getCost();
         }
         return (Procedure) list[ConsoleUI.promptForMenuSelection(options, message)];
     }
@@ -310,7 +325,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     public Insurance selectInsurance(List<Insurance> insurances, String message) throws IOException {
         Object[] list = insurances.toArray();
         if (insurances.isEmpty()) {
-            throw new NotFoundException("There are no insurances in record. Please add an insurance first");
+            throw new NotFoundException("\nThere are no insurances in record. Please add an insurance first");
         }
         String[] options = new String[list.length + 1];
         for (int i = 0; i < options.length - 1; i++) {
@@ -491,9 +506,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
                 println("The phone number is too long, please try again. (maximum 10 digits)");
             } else if (phone.length() < 10) {
                 println("The phone number is too short, please try again. (minimum 10 digits)");
-                //TODO MAKE SURE YOU CAN'T PUT ANY LETTERS
-            } else
-                if (!phone.matches("^\\d{10}$")) {
+            } else if (!phone.matches("^\\d{10}$")) {
                 println("Only numbers allowed");
             } else {
                 return phone;
@@ -524,7 +537,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public double getCost() throws IOException {
-        return ConsoleUI.promptForDouble("How much did it cost?", 0, Double.MAX_VALUE);
+        return ConsoleUI.promptForDouble("How much will it cost?", 0, Double.MAX_VALUE);
     }
 
     public String getInsuranceName() throws IOException {
@@ -603,4 +616,17 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         clean = clean.replace(",", "\n");
         return clean;
     }
+
+    public LocalDate getLocalDate() throws IOException{
+        return LocalDate.of(getYear(), getMonth(),getDay());
+    }
+
+    public boolean isCompleted(String msg) throws IOException{
+        return ConsoleUI.promptForBool(msg,"YES", "NO");
+    }
+
+    public int getHowManyProcedures() throws IOException{
+        return ConsoleUI.promptForInt("How Many procedure would you like to add (Maximum of 3)", 1,3);
+    }
+
 }
