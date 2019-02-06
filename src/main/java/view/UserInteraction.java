@@ -43,7 +43,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return menuOptions;
     }
 
-    public int appointmentsMenu() throws IOException{
+    public int appointmentsMenu() throws IOException {
         return ConsoleUI.promptForMenuSelection(fillAppointmentsMenu(), "Past appointments is view only. Future appointments can be set to completed");
     }
 
@@ -52,7 +52,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         options[0] = "Past Appointments";
         options[1] = "Future Appointments";
         options[2] = "Exit";
-        return  options;
+        return options;
     }
 
     public int createAdminMenu() throws IOException {
@@ -334,8 +334,15 @@ public class UserInteraction implements DentistOfficeUserInteraction {
                 options[i + 1] = "Include all insurances";
             }
         }
-        return (Insurance) list[ConsoleUI.promptForMenuSelection(options, message)];
+
+        try {
+            return (Insurance) list[ConsoleUI.promptForMenuSelection(options, message)];
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            return null;
+        }
+
     }
+
 
     public UserRole selectRole() throws IOException {
         UserRole role = null;
@@ -343,8 +350,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         roleMenu[0] = "Administrative";
         roleMenu[1] = "Standard";
         int selection = ConsoleUI.promptForMenuSelection(roleMenu, "Select new role");
-        switch (selection){
-            case  0:
+        switch (selection) {
+            case 0:
                 role = UserRole.ADMINISTRATIVE;
                 break;
             case 1:
@@ -426,7 +433,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         }
     }
 
-    public ProviderType getProviderTypeWithEmptyEntry() throws IOException{
+    public ProviderType getProviderTypeWithEmptyEntry() throws IOException {
         String[] newOne = new String[4];
         newOne[0] = "Dentist";
         newOne[1] = "Assistant";
@@ -447,7 +454,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         }
     }
 
-    private String[] fillProviderType(){
+    private String[] fillProviderType() {
         String[] menuOptions = new String[3];
         menuOptions[0] = "Dentist";
         menuOptions[1] = "Assistant";
@@ -606,10 +613,10 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public String getInput(String msg, boolean allowEmpty) throws IOException {
-        return ConsoleUI.promptForInput(msg,allowEmpty,false);
+        return ConsoleUI.promptForInput(msg, allowEmpty, false);
     }
 
-    public String removeCharacters(String content){
+    public String removeCharacters(String content) {
         String clean;
         clean = content.replace("[", "");
         clean = clean.replace("]", "");
@@ -617,16 +624,16 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return clean;
     }
 
-    public LocalDate getLocalDate() throws IOException{
-        return LocalDate.of(getYear(), getMonth(),getDay());
+    public LocalDate getLocalDate() throws IOException {
+        return LocalDate.of(getYear(), getMonth(), getDay());
     }
 
-    public boolean isCompleted(String msg) throws IOException{
-        return ConsoleUI.promptForBool(msg,"YES", "NO");
+    public boolean isCompleted(String msg) throws IOException {
+        return ConsoleUI.promptForBool(msg, "YES", "NO");
     }
 
-    public int getHowManyProcedures() throws IOException{
-        return ConsoleUI.promptForInt("How Many procedure would you like to add (Maximum of 3)", 1,3);
+    public int getHowManyProcedures() throws IOException {
+        return ConsoleUI.promptForInt("How Many procedure would you like to add (Maximum of 3)", 1, 3);
     }
 
 }
