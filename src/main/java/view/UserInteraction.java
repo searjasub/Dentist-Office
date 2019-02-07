@@ -90,7 +90,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     private String[] fillStandardEditMenu() {
         String[] menuOptions = new String[6];
-        menuOptions[0] = "Own Password";
+        menuOptions[0] = "Own Information";
         menuOptions[1] = "Provider";
         menuOptions[2] = "Patient";
         menuOptions[3] = "Appointment";
@@ -105,8 +105,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     private String[] fillAdminEditMenu() {
         String[] menuOptions = new String[7];
-        menuOptions[0] = "Own Password";
-        menuOptions[1] = "Other User Password";
+        menuOptions[0] = "Own Information";
+        menuOptions[1] = "Other User's Information";
         menuOptions[2] = "Provider";
         menuOptions[3] = "Patient";
         menuOptions[4] = "Appointment";
