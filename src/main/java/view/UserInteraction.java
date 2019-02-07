@@ -90,7 +90,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     private String[] fillStandardEditMenu() {
         String[] menuOptions = new String[6];
-        menuOptions[0] = "Own Password";
+        menuOptions[0] = "Own Information";
         menuOptions[1] = "Provider";
         menuOptions[2] = "Patient";
         menuOptions[3] = "Appointment";
@@ -281,7 +281,6 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public Patient selectPatient(List<Patient> patients, String message) throws IOException {
-
         Object[] list = patients.toArray();
         if (patients.isEmpty()) {
             throw new NotFoundException("There are no patients in record. Please add a patient first");
@@ -297,12 +296,16 @@ public class UserInteraction implements DentistOfficeUserInteraction {
             throws IOException {
         Object[] list = appointments.toArray();
         if (appointments.isEmpty()) {
-            throw new NotFoundException("There are no appointments in record. Please add an appointment first");
+            throw new NotFoundException("There are no future appointments in record. Please add an appointment first");
         }
         String[] options = new String[list.length];
         for (int i = 0; i < options.length; i++) {
-            options[i] = appointments.get(i).getPatient().getName() + appointments.get(i).getPatient().getLastName()
-                    + " - [" + appointments.get(i).getDateTime().getMonth() +"/" + appointments.get(i).getDateTime().getDayOfMonth() + " " + appointments.get(i).getDateTime().getHour()+":"+ appointments.get(i).getDateTime().getMinute()+ "]";
+            if (!appointments.get(i).isCompleted()) {
+                if (appointments.get(i).getPatient() != null) {
+                    options[i] = appointments.get(i).getPatient().getName() + appointments.get(i).getPatient().getLastName() + " - [" + appointments.get(i).getDateTime().getMonth() + "/" + appointments.get(i).getDateTime().getDayOfMonth() + " " + appointments.get(i).getDateTime().getHour() + ":" + appointments.get(i).getDateTime().getMinute() + "]";
+
+                }
+            }
         }
         return (FutureAppointment) list[ConsoleUI.promptForMenuSelection(options, message)];
     }
@@ -334,15 +337,12 @@ public class UserInteraction implements DentistOfficeUserInteraction {
                 options[i + 1] = "Include all insurances";
             }
         }
-
         try {
             return (Insurance) list[ConsoleUI.promptForMenuSelection(options, message)];
         } catch (ArrayIndexOutOfBoundsException ex) {
             return null;
         }
-
     }
-
 
     public UserRole selectRole() throws IOException {
         UserRole role = null;
@@ -509,12 +509,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         String phone;
         while (true) {
             phone = ConsoleUI.promptForInput("Please enter phone number", false, false);
-            if (phone.length() > 10) {
-                println("The phone number is too long, please try again. (maximum 10 digits)");
-            } else if (phone.length() < 10) {
-                println("The phone number is too short, please try again. (minimum 10 digits)");
-            } else if (!phone.matches("^\\d{10}$")) {
-                println("Only numbers allowed");
+                if (!phone.matches("^\\d{10}$")) {
+                println("That doesn't looks like a valid phone number, please try again");
             } else {
                 return phone;
             }
@@ -629,7 +625,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public boolean isCompleted(String msg) throws IOException {
-        return ConsoleUI.promptForBool(msg, "YES", "NO");
+        return ConsoleUI.promptForBool(msg);
     }
 
     public int getHowManyProcedures() throws IOException {
