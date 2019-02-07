@@ -16,6 +16,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     public int mainMenu() throws IOException {
         return ConsoleUI.promptForMenuSelection(fillMainMenu(), defaultQuestion);
+
     }
 
     private String[] fillMainMenu() {
