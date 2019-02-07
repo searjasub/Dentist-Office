@@ -302,7 +302,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         String[] options = new String[list.length];
         for (int i = 0; i < options.length; i++) {
             options[i] = appointments.get(i).getPatient().getName() + appointments.get(i).getPatient().getLastName()
-                    + "@ [" + appointments.get(i).getDateTime().toString() + "]";
+                    + " - [" + appointments.get(i).getDateTime().getMonth() +"/" + appointments.get(i).getDateTime().getDayOfMonth() + " " + appointments.get(i).getDateTime().getHour()+":"+ appointments.get(i).getDateTime().getMinute()+ "]";
         }
         return (FutureAppointment) list[ConsoleUI.promptForMenuSelection(options, message)];
     }
@@ -633,7 +633,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public int getHowManyProcedures() throws IOException {
-        return ConsoleUI.promptForInt("How Many procedure would you like to add (Maximum of 3)", 1, 3);
+        return ConsoleUI.promptForInt("How many procedures would you like to add (Maximum of 3)", 1, 3);
     }
 
 }
