@@ -105,8 +105,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     private String[] fillAdminEditMenu() {
         String[] menuOptions = new String[7];
-        menuOptions[0] = "Own Password";
-        menuOptions[1] = "Other User Password";
+        menuOptions[0] = "Own Information";
+        menuOptions[1] = "Other Users Information";
         menuOptions[2] = "Provider";
         menuOptions[3] = "Patient";
         menuOptions[4] = "Appointment";
