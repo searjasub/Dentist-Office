@@ -16,7 +16,6 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     public int mainMenu() throws IOException {
         return ConsoleUI.promptForMenuSelection(fillMainMenu(), defaultQuestion);
-
     }
 
     private String[] fillMainMenu() {
@@ -208,10 +207,11 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     private String[] fillChangeTimeMenu() {
-        String[] options = new String[3];
+        String[] options = new String[4];
         options[0] = "Time";
         options[1] = "Day";
-        options[2] = "Exit";
+        options[2] = "Both";
+        options[3] = "Exit";
         return options;
     }
 
@@ -268,20 +268,29 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return (User) list[ConsoleUI.promptForMenuSelection(options, message)];
     }
 
-    public Provider selectProvider(List<Provider> providers, String message) throws IOException {
+
+    public Provider selectProvider(List<Provider> providers, String message, boolean includeAll) throws IOException {
         Object[] list = providers.toArray();
         if (providers.isEmpty()) {
             throw new NotFoundException("There are no providers in record. Please add a provider first");
         }
         String[] options = new String[list.length];
         for (int i = 0; i < options.length; i++) {
-            options[i] = providers.get(i).getName() + " " + providers.get(i).getLastName() + " ("
-                    + providers.get(i).getTitle().getType() + ")";
+            options[i] = providers.get(i).getName() + " " + providers.get(i).getLastName() + " (" + providers.get(i).getTitle().getType() + ")";
+            if (includeAll) {
+                if (i == options.length - 2) {
+                    options[i + 1] = "Include all providers";
+                }
+            }
         }
-        return (Provider) list[ConsoleUI.promptForMenuSelection(options, message)];
+        try {
+            return (Provider) list[ConsoleUI.promptForMenuSelection(options, message)];
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
-    public Patient selectPatient(List<Patient> patients, String message) throws IOException {
+    public Patient selectPatient(List<Patient> patients, String message, boolean includeAll) throws IOException {
         Object[] list = patients.toArray();
         if (patients.isEmpty()) {
             throw new NotFoundException("There are no patients in record. Please add a patient first");
@@ -289,8 +298,17 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         String[] options = new String[list.length];
         for (int i = 0; i < options.length; i++) {
             options[i] = patients.get(i).getName() + " " + patients.get(i).getLastName();
+            if (includeAll) {
+                if (i == options.length - 2) {
+                    options[i + 1] = "Include all providers";
+                }
+            }
         }
-        return (Patient) list[ConsoleUI.promptForMenuSelection(options, message)];
+        try {
+            return (Patient) list[ConsoleUI.promptForMenuSelection(options, message)];
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            return null;
+        }
     }
 
     public FutureAppointment selectFutureAppointment(List<FutureAppointment> appointments, String message)
@@ -510,7 +528,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         String phone;
         while (true) {
             phone = ConsoleUI.promptForInput("Please enter phone number", false, false);
-                if (!phone.matches("^\\d{10}$")) {
+            if (!phone.matches("^\\d{10}$")) {
                 println("That doesn't looks like a valid phone number, please try again");
             } else {
                 return phone;
@@ -580,13 +598,22 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return ConsoleUI.promptForInt("Please Enter A New Zip Code", 10000, 99999);
     }
 
-    public LocalDateTime getFutureDate() throws IOException {
-        return LocalDateTime.of(
-                getYear(),
-                getMonth(),
-                getDay(),
-                getHour(),
-                getMinute());
+    public LocalDateTime getFutureDate(boolean onlyBasics) throws IOException {
+        if (onlyBasics) {
+            return LocalDateTime.of(
+                    getYear(),
+                    getMonth(),
+                    getDay(),
+                    0,
+                    0);
+        } else {
+            return LocalDateTime.of(
+                    getYear(),
+                    getMonth(),
+                    getDay(),
+                    getHour(),
+                    getMinute());
+        }
     }
 
     public int getYear() throws IOException {
@@ -633,4 +660,20 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return ConsoleUI.promptForInt("How many procedures would you like to add (Maximum of 3)", 1, 3);
     }
 
+    public int editAppointmentProviderMenu() throws IOException {
+        return ConsoleUI.promptForMenuSelection(fillEditAppointmentProviderMenu(), "What would you like to do?");
+    }
+
+    private String[] fillEditAppointmentProviderMenu() {
+        String[] options = new String[3];
+        options[0] = "Add Procedure";
+        options[1] = "Remove Procedure";
+        options[2] = "Exit";
+        return options;
+    }
+
+    @Override
+    public double chargeAmount() throws IOException {
+        return 0;
+    }
 }

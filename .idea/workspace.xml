@@ -24,7 +24,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="25" />
+          <entry key="CLASS" value="26" />
           <entry key="JAVA" value="4" />
           <entry key="XML" value="1" />
         </counts>
@@ -32,7 +32,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="168" />
-          <entry key="JAVA" value="1662" />
+          <entry key="JAVA" value="2046" />
           <entry key="XML" value="14" />
         </counts>
       </usages-collector>
@@ -40,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="170">
+              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,14 +52,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/UserInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="522" lean-forward="true" selection-start-line="522" selection-end-line="522" />
+            <state relative-caret-position="316">
+              <caret line="606" column="22" lean-forward="true" selection-start-line="606" selection-start-column="22" selection-end-line="606" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#13699#13700#0" expanded="true" />
+                <element signature="e#13782#13783#0" expanded="true" />
+                <element signature="e#14607#14608#0" expanded="true" />
+                <element signature="e#14650#14651#0" expanded="true" />
+                <element signature="e#14691#14692#0" expanded="true" />
+                <element signature="e#14732#14733#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/ConsoleIO/Dentist-Office-API/out/artifacts/dentist_application_jar/dentist-application.jar!/controller/ClinicController.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-15">
+              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -78,14 +93,17 @@
       <find>getema</find>
       <find>appointmentsme</find>
       <find>future</find>
+      <find>changetime</find>
+      <find>emptyentr</find>
+      <find>futureda</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/view/UserInteraction.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/UserInteraction.java" />
       </list>
     </option>
   </component>
@@ -154,11 +172,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549569364727" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549618538131" />
     <property name="last_opened_file_path" value="D:/ConsoleIO/Dentist-Office-API/out/artifacts/dentist_application_jar/dentist-application.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.23455234" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -208,18 +226,18 @@
       <workItem from="1549340743412" duration="9556000" />
       <workItem from="1549464063700" duration="599000" />
       <workItem from="1549480579578" duration="18650000" />
-      <workItem from="1549604585655" duration="395000" />
+      <workItem from="1549604585655" duration="6487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37142000" />
+    <option name="totallyTimeSpent" value="43234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26586434" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26586434" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -278,13 +296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/ConsoleIO/Dentist-Office-API/out/artifacts/dentist_application_jar/dentist-application.jar!/controller/ClinicController.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="64" column="37" lean-forward="true" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -292,22 +303,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/UserInteraction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="522" lean-forward="true" selection-start-line="522" selection-end-line="522" />
+        <state relative-caret-position="170">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="jar://D:/ConsoleIO/Dentist-Office-API/out/artifacts/dentist_application_jar/dentist-application.jar!/controller/ClinicController.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="-15">
+          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/UserInteraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="606" column="22" lean-forward="true" selection-start-line="606" selection-start-column="22" selection-end-line="606" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13699#13700#0" expanded="true" />
+            <element signature="e#13782#13783#0" expanded="true" />
+            <element signature="e#14607#14608#0" expanded="true" />
+            <element signature="e#14650#14651#0" expanded="true" />
+            <element signature="e#14691#14692#0" expanded="true" />
+            <element signature="e#14732#14733#0" expanded="true" />
           </folding>
         </state>
       </provider>
