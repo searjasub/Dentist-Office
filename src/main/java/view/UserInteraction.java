@@ -674,6 +674,18 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     @Override
     public double chargeAmount() throws IOException {
-        return 0;
+        return ConsoleUI.promptForDouble("What is the amount to be charge?",0,Double.MAX_VALUE);
+    }
+
+    public int selectMonthOrDay() throws IOException{
+        return ConsoleUI.promptForMenuSelection(fillSelectMonthOrDay(), "How would you like to group the production report?");
+    }
+
+    private String[] fillSelectMonthOrDay() {
+        String[] options = new String[3];
+        options[0] = "By Day";
+        options[1] = "By Month";
+        options[2] = "Exit";
+        return options;
     }
 }

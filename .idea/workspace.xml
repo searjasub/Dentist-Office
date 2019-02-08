@@ -32,7 +32,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="168" />
-          <entry key="JAVA" value="2046" />
+          <entry key="JAVA" value="2317" />
           <entry key="XML" value="14" />
         </counts>
       </usages-collector>
@@ -55,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/UserInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="606" column="22" lean-forward="true" selection-start-line="606" selection-start-column="22" selection-end-line="606" selection-end-column="22" />
+            <state relative-caret-position="486">
+              <caret line="690" column="1" selection-start-line="690" selection-start-column="1" selection-end-line="690" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#13699#13700#0" expanded="true" />
@@ -172,7 +172,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549618538131" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549637627525" />
     <property name="last_opened_file_path" value="D:/ConsoleIO/Dentist-Office-API/out/artifacts/dentist_application_jar/dentist-application.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -226,12 +226,12 @@
       <workItem from="1549340743412" duration="9556000" />
       <workItem from="1549464063700" duration="599000" />
       <workItem from="1549480579578" duration="18650000" />
-      <workItem from="1549604585655" duration="6487000" />
+      <workItem from="1549604585655" duration="8068000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43234000" />
+    <option name="totallyTimeSpent" value="44815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -322,8 +322,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/UserInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="606" column="22" lean-forward="true" selection-start-line="606" selection-start-column="22" selection-end-line="606" selection-end-column="22" />
+        <state relative-caret-position="486">
+          <caret line="690" column="1" selection-start-line="690" selection-start-column="1" selection-end-line="690" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#13699#13700#0" expanded="true" />
