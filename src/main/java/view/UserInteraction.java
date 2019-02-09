@@ -150,11 +150,12 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     private String[] fillSearchMenu() {
-        String[] menuOptions = new String[4];
+        String[] menuOptions = new String[5];
         menuOptions[0] = "Providers";
         menuOptions[1] = "Patients";
         menuOptions[2] = "Appointments";
-        menuOptions[3] = "Exit";
+        menuOptions[3] = "Users";
+        menuOptions[4] = "Exit";
         return menuOptions;
     }
 
@@ -422,8 +423,8 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return ConsoleUI.promptForInput("Enter the last name: ", allowEmpty, true);
     }
 
-    public String getUsername() throws IOException {
-        return ConsoleUI.promptForInput("Enter the username: ", false, true);
+    public String getUsername(boolean allowsEmpty) throws IOException {
+        return ConsoleUI.promptForInput("Enter the username: ", allowsEmpty, true);
     }
 
     public UserRole getUserType() throws IOException {
