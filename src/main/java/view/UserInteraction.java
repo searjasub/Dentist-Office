@@ -621,6 +621,10 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return ConsoleUI.promptForInt("Enter Year", 2019, 2100);
     }
 
+    public int getYearEmpty() throws IOException{
+        return (int) ConsoleUI.promptForDouble()
+    }
+
     public int getMonth() throws IOException {
         return ConsoleUI.promptForInt("Enter Month Number", 1, 12);
     }
@@ -686,6 +690,19 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         String[] options = new String[3];
         options[0] = "By Day";
         options[1] = "By Month";
+        options[2] = "Exit";
+        return options;
+    }
+
+    @Override
+    public int gruopBy() throws IOException {
+        return ConsoleUI.promptForMenuSelection(fillGroupBy(), "How would you like to group them by?");
+    }
+
+    private String[] fillGroupBy() {
+        String[] options = new String[3];
+        options[0] = "By larges balance";
+        options[1] = "By last name, first name";
         options[2] = "Exit";
         return options;
     }
