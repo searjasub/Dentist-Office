@@ -621,10 +621,6 @@ public class UserInteraction implements DentistOfficeUserInteraction {
         return ConsoleUI.promptForInt("Enter Year", 2019, 2100);
     }
 
-    public int getYearEmpty() throws IOException{
-        return (int) ConsoleUI.promptForDouble()
-    }
-
     public int getMonth() throws IOException {
         return ConsoleUI.promptForInt("Enter Month Number", 1, 12);
     }
@@ -639,10 +635,6 @@ public class UserInteraction implements DentistOfficeUserInteraction {
 
     public int getMinute() throws IOException {
         return ConsoleUI.promptForInt("Enter Minutes", 0, 59);
-    }
-
-    public String getInput(String msg, boolean allowEmpty) throws IOException {
-        return ConsoleUI.promptForInput(msg, allowEmpty, false);
     }
 
     public String removeCharacters(String content) {
