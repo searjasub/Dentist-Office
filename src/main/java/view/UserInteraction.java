@@ -618,7 +618,7 @@ public class UserInteraction implements DentistOfficeUserInteraction {
     }
 
     public int getYear() throws IOException {
-        return ConsoleUI.promptForInt("Enter Year", 2019, 2100);
+        return ConsoleUI.promptForInt("Enter Year", 2000, 2100);
     }
 
     public int getMonth() throws IOException {
